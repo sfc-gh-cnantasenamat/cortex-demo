@@ -1,5 +1,5 @@
 import streamlit as st
-from snowflake.ml.cortex import complete
+from snowflake.cortex import complete
 
 # Set the title of the Streamlit app
 st.title("Snowflake Cortex `Complete` Example ❄️")
