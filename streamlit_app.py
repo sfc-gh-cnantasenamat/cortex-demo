@@ -1,5 +1,5 @@
 import streamlit as st
-from snowflake.cortex import complete
+from snowflake.cortex import Complete
 
 # Set the title of the Streamlit app
 st.title("Snowflake Cortex `Complete` Example ❄️")
@@ -17,7 +17,7 @@ if st.button("Generate Completion"):
         # Display a spinner while waiting for the response
         with st.spinner("Generating response..."):
             # Call the Complete function with the desired model and the user's prompt
-            completion = complete(
+            completion = Complete(
                 model="claude-4-sonnet",
                 prompt=prompt,
                 session=session
