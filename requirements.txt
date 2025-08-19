@@ -1,3 +1,4 @@
 matplotlib
 pandas
 snowflake-snowpark-python
+snowflake-ml-python
