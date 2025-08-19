@@ -1,4 +1,5 @@
 import streamlit as st
+import json
 from snowflake.snowpark.functions import ai_complete
 
 # Set the title of the Streamlit app
@@ -28,7 +29,11 @@ if st.button("Generate Completion"):
                     show_details=True
                 ).alias("detailed_response")
             )
-            result = df.collect()[0][0]
+            json_string = df.collect()[0][0]
+            data = json.loads(json_string)
+
+            # Extract the result
+            result = data['choices'][0]['messages']
             
         # Display the generated text
         st.success("Completion generated!")
