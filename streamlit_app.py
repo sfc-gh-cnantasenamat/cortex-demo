@@ -23,7 +23,7 @@ if st.button("Generate Completion"):
             # )
             df = session.range(1).select(
                 ai_complete(
-                    model='claude-4-sonnet',
+                    model='claude-3-5-sonnet',
                     prompt=prompt,
                     show_details=True
                 ).alias("detailed_response")
