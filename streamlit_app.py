@@ -19,8 +19,7 @@ if st.button("Generate Completion"):
             # Call the Complete function with the desired model and the user's prompt
             completion = ai_complete(
                 model="claude-4-sonnet",
-                prompt=prompt,
-                session=session
+                prompt=prompt
             )
         
         # Display the generated text
