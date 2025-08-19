@@ -1,4 +1,4 @@
 streamlit[snowflake]
 snowflake
 snowflake-snowpark-python
-snowflake-ml-python
+snowflake.cortex
