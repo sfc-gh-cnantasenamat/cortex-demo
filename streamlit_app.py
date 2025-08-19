@@ -18,10 +18,6 @@ if st.button("Generate Completion"):
         # Display a spinner while waiting for the response
         with st.spinner("Generating response..."):
             # Call the Complete function with the desired model and the user's prompt
-            # completion = ai_complete(
-            #     model="claude-4-sonnet",
-            #     prompt=prompt
-            # )
             df = session.range(1).select(
                 ai_complete(
                     model='claude-3-5-sonnet',
@@ -29,10 +25,9 @@ if st.button("Generate Completion"):
                     show_details=True
                 ).alias("detailed_response")
             )
+            # Extracting result from the generated JSON output
             json_string = df.collect()[0][0]
             data = json.loads(json_string)
-
-            # Extract the result
             result = data['choices'][0]['messages']
             
         # Display the generated text
