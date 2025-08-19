@@ -1,2 +1,2 @@
 streamlit[snowflake]
-snowflake-ml-python
+snowflake-snowpark-python
