@@ -18,7 +18,7 @@ if st.button("Generate Completion"):
         with st.spinner("Generating response..."):
             # Call the Complete function with the desired model and the user's prompt
             completion = Complete(
-                model="llama2-70b-chat",
+                model="claude-4-sonnet",
                 prompt=prompt,
                 session=session
             )
