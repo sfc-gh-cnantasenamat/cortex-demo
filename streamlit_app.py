@@ -17,14 +17,22 @@ if st.button("Generate Completion"):
         # Display a spinner while waiting for the response
         with st.spinner("Generating response..."):
             # Call the Complete function with the desired model and the user's prompt
-            completion = ai_complete(
-                model="claude-4-sonnet",
-                prompt=prompt
+            # completion = ai_complete(
+            #     model="claude-4-sonnet",
+            #     prompt=prompt
+            # )
+            df = session.range(1).select(
+                ai_complete(
+                    model='claude-4-sonnet',
+                    prompt=prompt,
+                    show_details=True
+                ).alias("detailed_response")
             )
-        
+            result = df.collect()[0][0]
+            
         # Display the generated text
         st.success("Completion generated!")
-        st.write(completion)
+        st.write(result)
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
