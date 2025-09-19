@@ -30,8 +30,6 @@ default_prompt = ""
 if selection is not None:
     default_prompt = option_map[selection]
     st.write(f"Your selected prompt: {default_prompt}")
-else:
-    st.write("Select a preset prompt or enter your own below.")
 
 # Create a text area for the user to enter or edit a prompt
 prompt = st.text_area("Enter a prompt:", value=default_prompt, key=f"prompt_input_{selection}")
