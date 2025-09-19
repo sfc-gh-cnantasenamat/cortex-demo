@@ -20,7 +20,7 @@ option_map = {
 
 # Create the pills widget for prompt selection
 selection = st.pills(
-    "Tool",
+    "Example Prompts:",
     options=option_map.keys(),
     format_func=lambda option: option_map[option],
 )
