@@ -56,7 +56,7 @@ if st.button("Generate Completion", type=button_type):
                 data = json.loads(json_string)
 
                
-                with st.expander("Full Output")
+                with st.expander("Full Output"):
                     st.json(data)
 
                 st.write(data['choices'][0]['text'])
