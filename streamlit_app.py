@@ -23,7 +23,8 @@ st.write(
 )
 
 # Create a text area for user input
-prompt = st.text_area("Enter a prompt:", option_map[selection])
+if option_map[selection] is not None:
+    prompt = st.text_area("Enter a prompt:", option_map[selection])
 
 # Create a button to trigger the completion
 if st.button("Generate Completion"):
