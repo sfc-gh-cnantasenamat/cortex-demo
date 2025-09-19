@@ -14,7 +14,7 @@ if 'result' not in st.session_state:
 # Define the preset prompts for the pills widget
 option_map = {
     0: "Write a short poem about the first snowfall.",
-    1: "What is Snowflake Cortex?",
+    1: "What is Python?",
     2: "What is Streamlit?",
 }
 
