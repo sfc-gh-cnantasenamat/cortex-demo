@@ -4,6 +4,7 @@ from snowflake.snowpark.functions import ai_complete
 
 # Set the title of the Streamlit app
 st.title(":material/network_intel_node: Cortex Demo")
+st.success("A demo of Snowflake Cortex in action.")
 
 # Create a text area for user input
 prompt = st.text_area("Enter a prompt:", "Write a short poem about the first snowfall.")
