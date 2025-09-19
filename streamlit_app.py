@@ -3,7 +3,7 @@ import json
 from snowflake.snowpark.functions import ai_complete
 
 # Set the title of the Streamlit app
-st.title("Snowflake Cortex `ai_complete` Example ❄️")
+st.title(":materials/network_intel_node: Cortex Demo")
 
 # Create a text area for user input
 prompt = st.text_area("Enter a prompt:", "Write a short poem about the first snowfall.")
