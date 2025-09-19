@@ -6,16 +6,19 @@ from snowflake.snowpark.functions import ai_complete
 st.title(":material/network_intel_node: Cortex Demo")
 st.success("A demo of Snowflake Cortex in action.")
 
+# Initialize session state to store the result
+if 'result' not in st.session_state:
+    st.session_state.result = ""
+
 option_map = {
     0: "Write a short poem about the first snowfall.",
     1: "What is Snowflake Cortex?",
-    2: "What is Streamlit",
+    2: "What is Streamlit?",
 }
 selection = st.pills(
     "Tool",
     options=option_map.keys(),
     format_func=lambda option: option_map[option],
-    selection_mode="single",
 )
 st.write(
     "Your selected prompt: "
@@ -24,33 +27,38 @@ st.write(
 
 # Create a text area for user input
 if selection is not None:
-    prompt = st.text_area("Enter a prompt:", option_map[selection])
+    # Use a unique key for the text_area to ensure its state is managed correctly
+    prompt = st.text_area("Enter a prompt:", option_map[selection], key=f"prompt_input_{selection}")
 
     # Create a button to trigger the completion
     if st.button("Generate Completion"):
-        try:
-            # Get the Snowflake session from the Streamlit connection
-            session = st.connection("snowflake").session()
-    
-            # Display a spinner while waiting for the response
-            with st.spinner("Generating response..."):
-                # Call the Complete function
-                df = session.range(1).select(
-                    ai_complete(
-                        model='claude-3-5-sonnet',
-                        prompt=prompt,
-                        show_details=True
-                    ).alias("detailed_response")
-                )
-                # Extracting result from the generated JSON output
-                json_string = df.collect()[0][0]
-                data = json.loads(json_string)
-                # FIX 2: Correctly parse the JSON to get the content of the message.
-                result = data['choices'][0]['message']['content']
-                
-            # Display the generated text
-            st.success("Completion generated!")
-            st.write(result)
-    
-        except Exception as e:
-            st.error(f"An error occurred: {e}")
+        if prompt: # Ensure the prompt is not empty
+            try:
+                session = st.connection("snowflake").session()
+                with st.spinner("Generating response..."):
+                    df = session.range(1).select(
+                        ai_complete(
+                            model='claude-3-5-sonnet',
+                            prompt=prompt,
+                            show_details=True
+                        ).alias("detailed_response")
+                    )
+                    
+                    json_string = df.collect()[0][0]
+                    data = json.loads(json_string)
+
+                    # --- THIS IS THE FIX ---
+                    # The correct key is 'messages' at the top level of the JSON.
+                    # We store the result in session_state.
+                    st.session_state.result = data['messages']
+            
+            except Exception as e:
+                st.error(f"An error occurred: {e}")
+                st.session_state.result = "" # Clear previous result on error
+        else:
+            st.warning("Please enter a prompt.")
+
+# Always display the result if it exists in session state
+if st.session_state.result:
+    st.success("Completion generated!")
+    st.write(st.session_state.result)
