@@ -57,7 +57,8 @@ if st.button("Generate Completion", type=button_type):
                 with st.expander("Full Output"):
                     st.json(data)
 
-                st.write(data['choices'][0]['messages'])
+                with st.container(border=True):
+                    st.write(data['choices'][0]['messages'])
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
