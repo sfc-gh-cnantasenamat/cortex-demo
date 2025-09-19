@@ -23,9 +23,6 @@ st.write(
 )
 
 # Create a text area for user input
-if option_map[selection] is not None:
-    prompt = st.text_area("Enter a prompt:", option_map[selection])
-
 if selection is not None:
     prompt = st.text_area("Enter a prompt:", option_map[selection])
 
