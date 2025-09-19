@@ -35,8 +35,11 @@ else:
 # Create a text area for the user to enter or edit a prompt
 prompt = st.text_area("Enter a prompt:", value=default_prompt, key=f"prompt_input_{selection}")
 
-# Create a button to trigger the AI response generation
-if st.button("Generate Completion"):
+# Set the button type to 'primary' if there is text, otherwise 'secondary'
+button_type = "primary" if prompt else "secondary"
+
+# Create a button to trigger the AI response generation, using the dynamic type
+if st.button("Generate Completion", type=button_type):
     # Check if the prompt box is empty before making an API call
     if prompt:
         try:
