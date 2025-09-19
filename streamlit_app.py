@@ -39,16 +39,12 @@ prompt = st.text_area("Enter a prompt:", value=default_prompt, key=f"prompt_inpu
 # Set the button type to 'primary' (filled) if there is text, otherwise 'secondary' (outlined)
 button_type = "primary" if prompt else "secondary"
 
-# Create a button to trigger the AI response generation, using the dynamic type
+# Create a button to trigger the AI response generation
 if st.button("Generate Completion", type=button_type):
-    # Check if the prompt box is empty before making an API call
     if prompt:
         try:
-            # Securely connect to Snowflake
             session = st.connection("snowflake").session()
-            # Show a spinner while the model is generating a response
             with st.spinner("Generating response..."):
-                # Call the Cortex AI function with the prompt
                 df = session.range(1).select(
                     ai_complete(
                         model='claude-3-5-sonnet',
@@ -56,24 +52,30 @@ if st.button("Generate Completion", type=button_type):
                         show_details=True
                     ).alias("detailed_response")
                 )
-                
-                # Extract and parse the JSON response from the DataFrame
                 json_string = df.collect()[0][0]
                 data = json.loads(json_string)
+
+                # --- DEBUGGING AND FINAL FIX ---
                 
-                # Store the AI's message from the 'response' key in the session state
-                st.session_state.result = data['response']
-        
-        # Handle any errors during the API call
+                # STEP 1: This line prints the full JSON response. Run the app and look at the output.
+                st.header("Full AI Response (for Debugging)")
+                st.json(data)
+
+                # STEP 2: Find the key in the JSON above that holds the generated text.
+                # It might be nested. For example: data['choices'][0]['text']
+
+                # STEP 3: Replace 'YOUR_KEY_HERE' below with the correct key(s) you found in Step 2.
+                # Then, uncomment the line.
+                
+                # st.session_state.result = data['YOUR_KEY_HERE']
+
         except Exception as e:
             st.error(f"An error occurred: {e}")
             st.session_state.result = ""
     else:
-        # Show a warning if the user clicks the button with an empty prompt
         st.warning("Please enter a prompt.")
 
 # Display the result if one exists in the session state
-# This makes the result persist across page reruns
 if st.session_state.result:
     st.success("Completion generated!")
     st.write(st.session_state.result)
