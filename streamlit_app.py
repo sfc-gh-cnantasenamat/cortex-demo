@@ -55,19 +55,11 @@ if st.button("Generate Completion", type=button_type):
                 json_string = df.collect()[0][0]
                 data = json.loads(json_string)
 
-                # --- DEBUGGING AND FINAL FIX ---
-                
-                # STEP 1: This line prints the full JSON response. Run the app and look at the output.
-                st.header("Full AI Response (for Debugging)")
-                st.json(data)
+               
+                with st.expander("Full Output")
+                    st.json(data)
 
-                # STEP 2: Find the key in the JSON above that holds the generated text.
-                # It might be nested. For example: data['choices'][0]['text']
-
-                # STEP 3: Replace 'YOUR_KEY_HERE' below with the correct key(s) you found in Step 2.
-                # Then, uncomment the line.
-                
-                # st.session_state.result = data['YOUR_KEY_HERE']
+                st.write(data['choices'][0]['text'])
 
         except Exception as e:
             st.error(f"An error occurred: {e}")
