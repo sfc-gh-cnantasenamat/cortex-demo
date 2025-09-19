@@ -5,7 +5,7 @@ from snowflake.snowpark.functions import ai_complete
 # Set the page title and a small introduction for the app
 st.set_page_config(page_title="Cortex Demo", page_icon=":snowflake:")
 st.title(":material/network_intel_node: Cortex Demo")
-st.success("A demo of Snowflake Cortex in action.")
+st.info("A demo of Snowflake Cortex in action.")
 
 # Initialize a variable in session state to hold the AI's response
 if 'result' not in st.session_state:
