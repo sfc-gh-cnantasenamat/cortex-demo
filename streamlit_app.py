@@ -6,8 +6,24 @@ from snowflake.snowpark.functions import ai_complete
 st.title(":material/network_intel_node: Cortex Demo")
 st.success("A demo of Snowflake Cortex in action.")
 
+option_map = {
+    0: "Write a short poem about the first snowfall.",
+    1: "What is Snowflake Cortex?",
+    2: "What is Streamlit",
+}
+selection = st.pills(
+    "Tool",
+    options=option_map.keys(),
+    format_func=lambda option: option_map[option],
+    selection_mode="single",
+)
+st.write(
+    "Your selected prompt: "
+    f"{None if selection is None else option_map[selection]}"
+)
+
 # Create a text area for user input
-prompt = st.text_area("Enter a prompt:", "Write a short poem about the first snowfall.")
+prompt = st.text_area("Enter a prompt:", option_map[selection])
 
 # Create a button to trigger the completion
 if st.button("Generate Completion"):
