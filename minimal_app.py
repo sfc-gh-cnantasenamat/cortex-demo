@@ -9,6 +9,8 @@ st.info("A demo of Snowflake Cortex in action.")
 # Create a text input for the user's prompt
 prompt = st.text_input("Enter a prompt:")
 
+button_type = "primary" if prompt else "secondary"
+
 # Generate the response when the button is clicked and a prompt exists
 if st.button("Generate") and prompt:
     session = st.connection("snowflake").session()
