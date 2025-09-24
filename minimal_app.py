@@ -12,7 +12,3 @@ if st.button("Generate") and prompt:
     # Strip the surrounding quotation marks from the raw response
     response = raw_response.strip('"')
     st.markdown(str(response))
-
-    st.write(type(response))
-    st.write(type(str(response)))
-    
