@@ -13,4 +13,6 @@ if st.button("Generate") and prompt:
     response = raw_response.strip('"')
     st.markdown(str(response))
 
-    #raw_response
+    st.write(type(response))
+    st.write(type(str(response)))
+    
