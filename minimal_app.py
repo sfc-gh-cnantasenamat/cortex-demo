@@ -13,7 +13,7 @@ prompt = st.text_input("Enter a prompt:")
 if st.button("Generate") and prompt:
     session = st.connection("snowflake").session()
     # Call the AI function and collect the string response
-    with st.spinner("Generating response..."):
+    with st.spinner("Generating response...", show_time=True):
         df = session.range(1).select(
             ai_complete(
                 model='claude-3-5-sonnet',
