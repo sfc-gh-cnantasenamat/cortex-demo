@@ -11,7 +11,6 @@ if st.button("Generate") and prompt:
     raw_response = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt)).collect()[0][0]
     # Strip the surrounding quotation marks from the raw response
     response = raw_response.strip('"')
-    st.write(response)
+    st.markdown(response)
 
-    raw_response2 = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt))
-    raw_response2
+    #raw_response
