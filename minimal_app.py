@@ -9,6 +9,8 @@ if st.button("Generate") and prompt:
     session = st.connection("snowflake").session()
     # Call the AI function and collect the string response
     raw_response = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt)).collect()[0][0]
-    # Strip the surrounding quotation marks from the raw response
-    response = raw_response.strip('"')
-    st.markdown(str(response))
+    
+    # Chain methods: 1. Strip quotes, 2. Replace '\\n' with '\n'
+    response = raw_response.strip('"').replace('\\n', '\n')
+    
+    st.write(response)
