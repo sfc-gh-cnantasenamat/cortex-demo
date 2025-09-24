@@ -7,6 +7,8 @@ prompt = st.text_input("Enter a prompt:")
 # Generate the response when the button is clicked and a prompt exists
 if st.button("Generate") and prompt:
     session = st.connection("snowflake").session()
-    # Call the AI function and collect the string response directly
-    response = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt)).collect()[0][0]
+    # Call the AI function and collect the string response
+    raw_response = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt)).collect()[0][0]
+    # Strip the surrounding quotation marks from the raw response
+    response = raw_response.strip('"')
     st.write(response)
