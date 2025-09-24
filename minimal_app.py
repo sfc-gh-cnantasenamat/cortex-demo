@@ -12,9 +12,14 @@ prompt = st.text_input("Enter a prompt:")
 if st.button("Generate") and prompt:
     session = st.connection("snowflake").session()
     # Call the AI function and collect the string response
-    raw_response = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt)).collect()[0][0]
-    
-    # Chain methods: 1. Strip quotes, 2. Replace '\\n' with '\n'
-    response = raw_response.strip('"').replace('\\n', '\n')
-    
-    st.write(response)
+    with st.spinner("Generating response..."):
+        df = session.range(1).select(
+            ai_complete(
+                model='claude-3-5-sonnet',
+                prompt=prompt,
+                show_details=True
+            ).alias("detailed_response")
+        )
+        json_string = df.collect()[0][0]
+        data = json.loads(json_string)
+        st.write(data['choices'][0]['messages'])
