@@ -1,5 +1,6 @@
 import streamlit as st
 from snowflake.snowpark.functions import ai_complete
+import json
 
 # App title and info
 st.title(":material/network_intel_node: Cortex Demo")
