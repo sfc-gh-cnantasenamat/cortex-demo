@@ -1,6 +1,10 @@
 import streamlit as st
 from snowflake.snowpark.functions import ai_complete
 
+# App title and info
+st.title(":material/network_intel_node: Cortex Demo")
+st.info("A demo of Snowflake Cortex in action.")
+
 # Create a text input for the user's prompt
 prompt = st.text_input("Enter a prompt:")
 
