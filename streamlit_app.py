@@ -29,7 +29,7 @@ selection = st.pills(
 default_prompt = ""
 if selection is not None:
     default_prompt = option_map[selection]
-    st.write(f"Your selected prompt: :primary-badge[{default_prompt}]")
+    #st.write(f"Your selected prompt: :primary-badge[{default_prompt}]")
 
 # Create a text area for the user to enter or edit a prompt
 prompt = st.text_area("Enter a prompt:", value=default_prompt, key=f"prompt_input_{selection}")
