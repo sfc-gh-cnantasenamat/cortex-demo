@@ -3,8 +3,8 @@ import json
 from snowflake.snowpark.functions import ai_complete
 
 # Set the page title and a small introduction for the app
-st.set_page_config(page_title="Cortex Demo", page_icon=":material/network_intel_node:")
-st.title(":material/network_intel_node: Cortex Demo")
+st.set_page_config(page_title="Cortex Demo", page_icon=":primary[:material/network_intel_node:]")
+st.title(":primary[:material/network_intel_node:] Cortex Demo")
 st.info("A demo of Snowflake Cortex in action.")
 
 # Initialize a variable in session state to hold the AI's response
