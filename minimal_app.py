@@ -1,0 +1,12 @@
+import streamlit as st
+from snowflake.snowpark.functions import ai_complete
+
+# Create a text input for the user's prompt
+prompt = st.text_input("Enter a prompt:")
+
+# Generate the response when the button is clicked and a prompt exists
+if st.button("Generate") and prompt:
+    session = st.connection("snowflake").session()
+    # Call the AI function and collect the string response directly
+    response = session.range(1).select(ai_complete('claude-3-5-sonnet', prompt)).collect()[0][0]
+    st.write(response)
