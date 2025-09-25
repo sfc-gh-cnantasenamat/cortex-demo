@@ -8,7 +8,7 @@ st.set_page_config(
 )
 
 pages = {
-        st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
+        st.Page("text_app.py", title="Home", icon=":material/home:"),
         "Cortex Text Demo": [
             st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
             st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:"),
