@@ -13,8 +13,8 @@ st.set_page_config(
 pg = st.navigation(
     {
         "Examples": [
-            st.Page(text_app.run, title="Text example", icon=":material/description:"),
-            st.Page(text_minimal_app.run, title="Text (minimal) example", icon=":material/notes:"),
+            st.Page("text_app.py", title="Text example", icon=":material/description:"),
+            st.Page("text_minimal_app.py", title="Text (minimal) example", icon=":material/notes:"),
         ]
     }
 )
