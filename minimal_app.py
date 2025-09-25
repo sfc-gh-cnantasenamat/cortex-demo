@@ -12,7 +12,7 @@ prompt = st.text_input("Enter a prompt:")
 button_type = "primary" if prompt else "secondary"
 
 # Generate the response when the button is clicked and a prompt exists
-if st.button("Generate") and prompt:
+if st.button("Generate", type=button_type) and prompt:
     session = st.connection("snowflake").session()
     # Call the AI function and collect the string response
     with st.spinner("Generating response...", show_time=True):
