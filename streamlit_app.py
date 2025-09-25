@@ -17,7 +17,7 @@ pages = {
     }
 
 # Define the pages for the navigation
-pg = st.navigation(pages)
+pg = st.navigation(pages, position="top")
 
 # Run the selected page
 pg.run()
