@@ -1,14 +1,15 @@
 import streamlit as st
 
 # Set the page configuration
+page_icon = ":primary[:material/network_intel_node:]"
 st.set_page_config(
     page_title="Cortex Demo", 
-    page_icon=":primary[:material/network_intel_node:]",
+    page_icon=page_icon,
     layout="wide"
 )
 
 def home():
-    st.title("Welcome to the Cortex Demo App")
+    st.title(f"{page_icon} Welcome to the Cortex Demo App")
 
 # Define the pages for the sections
 main_pages = [
