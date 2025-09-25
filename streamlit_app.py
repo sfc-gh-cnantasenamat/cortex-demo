@@ -1,6 +1,4 @@
 import streamlit as st
-import text_app
-import text_minimal_app
 
 # Set the page configuration. This should be the first Streamlit command.
 st.set_page_config(
