@@ -17,8 +17,8 @@ main_pages = [
 ]
 
 cortex_demo_pages = [
-    st.Page("text_app.py", title="ai_complete for Text", icon=":material/description:"),
-    st.Page("text_minimal_app.py", title="ai_complete for Text (minimal)", icon=":material/notes:"),
+    st.Page("text_app.py", title="ai_complete() for Text", icon=":material/description:"),
+    st.Page("text_minimal_app.py", title="ai_complete() for Text (minimal)", icon=":material/notes:"),
 ]
 
 # Define the full navigation structure
