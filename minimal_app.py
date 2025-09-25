@@ -21,4 +21,5 @@ if st.button("Generate", type=button_type) and prompt:
         )
         json_string = df.collect()[0][0]
         data = json.loads(json_string)
-        st.write(data['choices'][0]['messages'])
+        with st.container(border=True):
+            st.write(data['choices'][0]['messages'])
