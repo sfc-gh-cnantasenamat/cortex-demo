@@ -23,7 +23,8 @@ cortex_demo_pages = [
 
 # Define the full navigation structure
 pages = {
-    "Main": main_pages,
+    # "Main": main_pages,
+    st.Page(home, title="Home", icon=":material/home:"),
     "Cortex Text Demo": cortex_demo_pages
 }
 
