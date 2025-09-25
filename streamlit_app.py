@@ -9,15 +9,15 @@ st.set_page_config(
     layout="wide"
 )
 
-# Define the pages for the navigation
-pg = st.navigation(
-    {
+pages = {
         "Examples": [
             st.Page("text_app.py", title="Text example", icon=":material/description:"),
             st.Page("text_minimal_app.py", title="Text (minimal) example", icon=":material/notes:"),
         ]
     }
-)
+
+# Define the pages for the navigation
+pg = st.navigation(pages, position="top")
 
 # Run the selected page
 pg.run()
