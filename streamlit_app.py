@@ -45,7 +45,7 @@ if st.button("Generate Completion", type=button_type):
             with st.spinner("Generating Response..."):
                 df = session.range(1).select(
                     ai_complete(
-                        model='claude-3-5-sonnet',
+                        model='claude-4-sonnet',
                         prompt=prompt,
                         show_details=True
                     ).alias("detailed_response")
