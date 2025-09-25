@@ -7,7 +7,11 @@ st.set_page_config(
     layout="wide"
 )
 
-# Define the pages for the "Cortex Text Demo" section
+# Define the pages for the sections
+main_pages = [
+    st.Page("text_app.py", title="Home", icon=":material/home:")
+]
+
 cortex_demo_pages = [
     st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
     st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:"),
@@ -15,7 +19,7 @@ cortex_demo_pages = [
 
 # Define the full navigation structure
 pages = {
-    st.Page("text_app.py", title="Home", icon=":material/home:"),
+    "Home": main_pages,
     "Cortex Text Demo": cortex_demo_pages
 }
 
