@@ -7,17 +7,18 @@ st.set_page_config(
     layout="wide"
 )
 
-# Define the pages as a list.
-# A standalone st.Page object will be a top-level link.
-# A dictionary will be a dropdown menu.
+# Define the pages for the "Cortex Text Demo" section
+cortex_demo_pages = [
+    st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
+    st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:"),
+]
+
+# Define the full navigation structure
 pages = [
-    st.Page("text_app.py", title="Home", icon=":material/home:", url_path="home"),
-    {
-        "Cortex Text Demo": [
-            st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
-            st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:"),
-        ]
-    }
+    # A standalone page for Home, set as the default
+    st.Page("text_app.py", title="Home", icon=":material/home:", url_path="home", default=True),
+    # A page that creates a section with the pages defined above
+    st.Page("Cortex Text Demo", icon=":material/text_fields:", pages=cortex_demo_pages),
 ]
 
 # Create the navigation from the list of pages
