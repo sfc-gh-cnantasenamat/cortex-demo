@@ -7,9 +7,12 @@ st.set_page_config(
     layout="wide"
 )
 
+def home():
+    st.title("Welcome to the Cortex Demo App")
+
 # Define the pages for the sections
 main_pages = [
-    st.Page("text_app.py", title="Home", icon=":material/home:")
+    st.Page(home, title="Home", icon=":material/home:")
 ]
 
 cortex_demo_pages = [
