@@ -17,7 +17,7 @@ if st.button("Generate", type=button_type) and prompt:
     # Call the AI function and collect the string response
     with st.spinner("Generating response...", show_time=True):
         df = session.range(1).select(
-              ai_complete(model='claude-3-5-sonnet', prompt=prompt, show_details=True).alias("detailed_response")
+              ai_complete(model='claude-4-sonnet', prompt=prompt, show_details=True).alias("detailed_response")
         )
         json_string = df.collect()[0][0]
         data = json.loads(json_string)
