@@ -4,7 +4,7 @@ import streamlit as st
 st.set_page_config(
     page_title="Cortex Demo", 
     page_icon=":primary[:material/network_intel_node:]",
-    layout="wide"
+    # layout="wide"
 )
 
 pages = {
