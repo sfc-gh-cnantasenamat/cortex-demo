@@ -32,7 +32,7 @@ if selection is not None:
     #st.write(f"Your selected prompt: :primary-badge[{default_prompt}]")
 
 # Create a text area for the user to enter or edit a prompt
-prompt = st.text_area("Enter a prompt:", value=default_prompt, key=f"prompt_input_{selection}")
+prompt = st.text_area("Enter a Prompt:", value=default_prompt, key=f"prompt_input_{selection}")
 
 # Set the button type to 'primary' (filled) if there is text, otherwise 'secondary' (outlined)
 button_type = "primary" if prompt else "secondary"
@@ -42,7 +42,7 @@ if st.button("Generate Completion", type=button_type):
     if prompt:
         try:
             session = st.connection("snowflake").session()
-            with st.spinner("Generating response..."):
+            with st.spinner("Generating Response..."):
                 df = session.range(1).select(
                     ai_complete(
                         model='claude-3-5-sonnet',
