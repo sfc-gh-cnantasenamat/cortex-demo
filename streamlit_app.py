@@ -17,8 +17,7 @@ cortex_demo_pages = [
 pages = [
     # A standalone page for Home, set as the default
     st.Page("text_app.py", title="Home", icon=":material/home:", url_path="home", default=True),
-    # A page that creates a section with the pages defined above
-    st.Page("Cortex Text Demo", icon=":material/text_fields:", pages=cortex_demo_pages),
+    "Cortex Text Demo": cortex_demo_pages
 ]
 
 # Create the navigation from the list of pages
