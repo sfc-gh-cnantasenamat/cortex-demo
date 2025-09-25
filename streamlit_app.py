@@ -1,22 +1,24 @@
 import streamlit as st
 
-# Set the page configuration. This should be the first Streamlit command.
+# Set the page configuration
 st.set_page_config(
     page_title="Cortex Demo", 
     page_icon=":primary[:material/network_intel_node:]",
-    # layout="wide"
+    layout="wide"
 )
 
+# Define the page structure with unique url_path for each page
 pages = {
         st.Page("text_app.py", title="Home", icon=":material/home:", url_path="home"),
         "Cortex Text Demo": [
-            st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
-            st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:"),
+            st.Page("text_app.py", title="Cortex Text example", icon=":material/description:", url_path="cortex_text_example"),
+            st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:", url_path="cortex_text_minimal_example"),
         ]
     }
 
 # Define the pages for the navigation
-pg = st.navigation(pages, position="top")
+pg = st.navigation(pages)
 
 # Run the selected page
 pg.run()
+
