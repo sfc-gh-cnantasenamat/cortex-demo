@@ -9,10 +9,10 @@ st.set_page_config(
 
 # Define the page structure with unique url_path for each page
 pages = {
-        "Home": [st.Page("text_app.py", title="Home", icon=":material/home:", url_path="home")],
+        "Home": [st.Page("text_app.py", title="Home", icon=":material/home:")],
         "Cortex Text Demo": [
-            st.Page("text_app.py", title="Cortex Text example", icon=":material/description:", url_path="cortex_text_example"),
-            st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:", url_path="cortex_text_minimal_example"),
+            st.Page("text_app.py", title="Cortex Text example", icon=":material/description:"),
+            st.Page("text_minimal_app.py", title="Cortex Text (minimal) example", icon=":material/notes:"),
         ]
     }
 
