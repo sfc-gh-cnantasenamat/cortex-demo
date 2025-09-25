@@ -10,7 +10,7 @@ st.set_page_config(
 )
 
 pages = {
-        "Examples": [
+        "Text": [
             st.Page("text_app.py", title="Text example", icon=":material/description:"),
             st.Page("text_minimal_app.py", title="Text (minimal) example", icon=":material/notes:"),
         ]
