@@ -13,7 +13,7 @@ def home():
 
 # Define the pages for the sections
 main_pages = [
-    st.Page(home, title="Home", icon=":material/home:")
+    st.Page(home, title="Home", icon=":material/home:", key="")
 ]
 
 cortex_demo_pages = [
