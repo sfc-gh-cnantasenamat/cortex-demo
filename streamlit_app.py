@@ -13,7 +13,7 @@ def home():
 
 # Define the pages for the sections
 main_pages = [
-    st.Page(home, title="Home", icon=":material/home:", key="")
+    st.Page(home, title="Home", icon=":material/home:")
 ]
 
 cortex_demo_pages = [
@@ -23,7 +23,7 @@ cortex_demo_pages = [
 
 # Define the full navigation structure
 pages = {
-    "Main": main_pages,
+    "": main_pages,
     "Cortex Text Demo": cortex_demo_pages
 }
 
