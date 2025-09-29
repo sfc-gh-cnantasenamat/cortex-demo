@@ -13,9 +13,8 @@ def home():
 
     st.markdown("""
     Key Cortex functions:
-    
-        - `ai_complete()` for text and image processing
-        - `ai_transcribe()` for audio transcription
+    - `ai_complete()` for text and image processing
+    - `ai_transcribe()` for audio transcription
     """)
 
 # Define the pages for the sections
