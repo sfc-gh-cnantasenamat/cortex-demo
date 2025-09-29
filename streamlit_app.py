@@ -17,14 +17,14 @@ main_pages = [
 ]
 
 cortex_demo_pages = [
-    st.Page("text_app.py", title="ai_complete() for Text", icon=":material/description:"),
-    st.Page("text_minimal_app.py", title="ai_complete() for Text (minimal)", icon=":material/notes:"),
+    st.Page("text_app.py", title="Text Demo 1", icon=":material/description:"),
+    st.Page("text_minimal_app.py", title="Text Demo 2", icon=":material/notes:"),
 ]
 
 # Define the full navigation structure
 pages = {
     "": main_pages,
-    "Cortex Text Demo": cortex_demo_pages
+    "Text Demo": cortex_demo_pages
 }
 
 # Create the navigation from the list of pages
