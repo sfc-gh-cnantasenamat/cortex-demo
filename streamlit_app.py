@@ -9,7 +9,12 @@ st.set_page_config(
 )
 
 def home():
-    st.title(f"{page_icon} Welcome to the Cortex Demo App")
+    st.title(f"{page_icon} Cortex Demo App")
+
+    st.markdown("""
+        - `ai_complete()` for text and image processing
+        - `ai_transcribe()` for audio transcription
+    """)
 
 # Define the pages for the sections
 main_pages = [
